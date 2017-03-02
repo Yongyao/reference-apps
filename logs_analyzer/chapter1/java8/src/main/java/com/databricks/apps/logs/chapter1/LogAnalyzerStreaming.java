@@ -101,13 +101,13 @@ public class LogAnalyzerStreaming {
       System.out.println(String.format("Response code counts: %s", responseCodeToCount));
 
       // Any IPAddress that has accessed the server more than 10 times.
-      List<String> ipAddresses =
-          accessLogs.mapToPair(log -> new Tuple2<>(log.getIpAddress(), 1L))
-              .reduceByKey(SUM_REDUCER)
-              .filter(tuple -> tuple._2() > 10)
-              .map(Tuple2::_1)
-              .take(100);
-      System.out.println(String.format("IPAddresses > 10 times: %s", ipAddresses));
+//      List<String> ipAddresses =
+//          accessLogs.mapToPair(log -> new Tuple2<>(log.getIpAddress(), 1L))
+//              .reduceByKey(SUM_REDUCER)
+//              .filter(tuple -> tuple._2() > 10)
+//              .map(Tuple2::_1)
+//              .take(100);
+//      System.out.println(String.format("IPAddresses > 10 times: %s", ipAddresses));
 
       // Top Endpoints.
       List<Tuple2<String, Long>> topEndpoints = accessLogs
